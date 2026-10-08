@@ -1,34 +1,20 @@
-# thesis-template
-Latex template for writing a thesis in the style required by Saarland University, Germany
+# ISMS & BCM Starter Kit: Saarland University
 
-## Writing your thesis
-The template is built so you don't have to adjust much to use it.
-In the main `Thesis.tex` file you will find a section near the top where you can specify the parameters (title, advisors, etc.) of your thesis.
-You can also set the template into proposal mode there if your are writing only a thesis proposal. This will exclude some stuff which is irrelevant for a proposal.
+A portfolio project in governance, risk and compliance (GRC). It builds the core documents of an information security management system (ISO/IEC 27001:2022) and business continuity management, using Saarland University as the example organisation.
 
-Your content should be defined in `.tex` files in `Chapters` folder. You can just write normal tex code and don't have to keep a special format in mind.
-Refer to the examples contained in the template.
+> **Portfolio exercise.** This is not an official document of Saarland University. Only public facts are used (see `risk-register/sources.md`); all risks, scores, owners, controls in place and dates are invented.
 
-To tell the template what chapters you have and in what order they go you have to specify filename and chapter title in the `Thesis.tex` file near the bottom.
-Use the `\loadchapter{x}{y}` command where you replace `x` by the filename of your chapter file (without `.tex`) and `y` by the title of your chapter.
-This will add a new chapter, set the chapter title and craete a label which you can reference by `\ref{chapter:filename}`.
+## Contents
 
-Your bibliography should be located in the `Bibliophy.bib` file in Bibtex format. See the included examples to see how to use references.
+| Piece | Status | Folder |
+|---|---|---|
+| Risk register (18 risks, likelihood × impact, owner, ISO 27001 Annex A controls, remediation tracking, KPI summary and heatmap) | Done | `risk-register/` |
+| Statement of Applicability (93 Annex A controls) | Planned | |
+| Business Impact Analysis, continuity plan and tabletop exercise | Planned | |
+| Python heatmap and KPI dashboard reading the register | Planned | |
 
-## How to build
-I would suggest using a sophisticated editor for this stuff. For example [Sublime text](https://www.sublimetext.com/) with the [Latex tools](https://github.com/SublimeText/LaTeXTools) works very well.
-If you want to build it by hand use bibtex to generate the bibliography and build it with pdflatex. You will need to build it multiple times for references to work correctly.
+## Risk register
 
-## FAQ
-
-### Can I use this to write my Thesis?
-Sure.
-
-### Can I make adjustments to the template and redistribute it?
-Sure.
-
-### I don't know how to use this can you help me?
-Nope. Google probably can help with most of your troubles. This template requires basic latex knowledge to use. If you want to extend the documentation you can submit a pull request though.
-
-### I found a bug/problem
-Feel free to open an issue and/or pull request.
+- `risk-register/saarland-university-risk-register.xlsx`: the register. Sheets: Read Me, Risk Register, Summary, Scoring Method, Lists, Sources.
+- `risk-register/build_register.py`: generates the workbook and the sources list (`pip install openpyxl`, then `python3 build_register.py out.xlsx sources.md`).
+- `risk-register/sources.md`: public sources, standards and incident reports behind the facts used.
